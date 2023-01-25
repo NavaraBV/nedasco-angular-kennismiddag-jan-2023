@@ -11,13 +11,20 @@ import { MatSortModule } from '@angular/material/sort';
 import { DetailComponent } from './detail/detail.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import {MatListModule, MatNavList} from '@angular/material/list';
+import { NavComponent } from './nav/nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
     AppComponent,
     TableWithPaginationComponent,
     DetailComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +34,11 @@ import {MatListModule, MatNavList} from '@angular/material/list';
     MatPaginatorModule,
     MatSortModule,
     MatListModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

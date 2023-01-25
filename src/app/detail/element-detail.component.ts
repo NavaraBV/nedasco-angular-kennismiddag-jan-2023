@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {map} from 'rxjs/operators';
-import {TableWithPaginationDataSource} from '../table-with-pagination/table-with-pagination-datasource';
+import {ElementsDataSource} from '../table-with-pagination/elements-data.source';
 
 @Component({
   selector: 'app-element-detail',
@@ -10,9 +10,9 @@ import {TableWithPaginationDataSource} from '../table-with-pagination/table-with
 })
 export class ElementDetailComponent {
   element$ = this.route.params.pipe(map(({id}) => this.dataSource.data.find(element => element.id === parseInt(id,10))));
-  private dataSource: TableWithPaginationDataSource;
+  private dataSource: ElementsDataSource;
 
   constructor(private route: ActivatedRoute) {
-    this.dataSource = new TableWithPaginationDataSource();
+    this.dataSource = new ElementsDataSource();
   }
 }

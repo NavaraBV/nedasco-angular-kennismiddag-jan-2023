@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
-import { TableWithPaginationDataSource, TableWithPaginationItem } from './table-with-pagination-datasource';
+import { ElementsDataSource, TableWithPaginationItem } from './elements-data.source';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ export class ElementListComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<TableWithPaginationItem>;
-  dataSource: TableWithPaginationDataSource;
+  dataSource: ElementsDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name'];
@@ -22,7 +22,7 @@ export class ElementListComponent implements AfterViewInit {
   public pageIndex: number = 0;
 
   constructor(private router: Router, private route: ActivatedRoute) {
-    this.dataSource = new TableWithPaginationDataSource();
+    this.dataSource = new ElementsDataSource();
   }
 
   ngAfterViewInit(): void {

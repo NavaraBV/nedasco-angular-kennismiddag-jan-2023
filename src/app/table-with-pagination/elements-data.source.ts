@@ -39,7 +39,7 @@ const EXAMPLE_DATA: TableWithPaginationItem[] = [
  * encapsulate all logic for fetching and manipulating the displayed data
  * (including sorting, pagination, and filtering).
  */
-export class TableWithPaginationDataSource extends DataSource<TableWithPaginationItem> {
+export class ElementsDataSource extends DataSource<TableWithPaginationItem> {
   data: TableWithPaginationItem[] = EXAMPLE_DATA;
   paginator: MatPaginator | undefined;
   sort: MatSort | undefined;

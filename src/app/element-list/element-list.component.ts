@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import {MatSort, Sort, SortDirection} from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { ElementsDataSource, TableWithPaginationItem } from './elements-data.source';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -19,8 +19,10 @@ export class ElementListComponent implements AfterViewInit {
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name'];
 
-  public pageSize: number = 10;
+  public pageSize: number = 3;
   public pageIndex: number = 0;
+  public sortColumn: string = '';
+  public sortDirection: SortDirection = 'asc';
 
   constructor(private router: Router, private route: ActivatedRoute) {
     this.dataSource = new ElementsDataSource();
@@ -35,21 +37,21 @@ export class ElementListComponent implements AfterViewInit {
       const pageIndex = Number(paramMap.get('pageIndex'));
       const pageSize = Number(paramMap.get('pageSize'));
       if(pageSize){
-        this.pageSize = pageSize
-        this.paginator.pageSize = pageSize
+        this.pageSize = pageSize;
       }
-      if(pageIndex){
-        this.pageIndex = pageIndex
-        this.paginator.pageIndex = pageIndex
+      if(pageIndex) {
+        this.pageIndex = pageIndex;
       }
+      this.sortColumn = paramMap.get('sortColumn') ?? '';
+      this.sortDirection = paramMap.get('sortDirection') as SortDirection ?? 'asc';
     });
   }
 
   goToDetail(row: {id: number, name: string}) {
-    this.router.navigate(['elements', row.id], {state: row});
+    this.router.navigate([row.id], {relativeTo: this.route});
   }
 
-  updateUrl($event: PageEvent) {
+  updatePagination($event: PageEvent) {
     this.router.navigate(
       [],
       {
@@ -57,6 +59,19 @@ export class ElementListComponent implements AfterViewInit {
         queryParams: {
           pageIndex: $event.pageIndex,
           pageSize: $event.pageSize
+        },
+        queryParamsHandling: 'merge', // remove to replace all query params by provided
+      });
+  }
+
+  updateSorting($event: Sort) {
+    this.router.navigate(
+      [],
+      {
+        relativeTo: this.route,
+        queryParams: {
+          sortColumn: $event.active,
+          sortDirection: $event.direction
         },
         queryParamsHandling: 'merge', // remove to replace all query params by provided
       });

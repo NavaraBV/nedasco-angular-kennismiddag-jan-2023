@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TableWithPaginationComponent } from './table-with-pagination/table-with-pagination.component';
+import { ElementListComponent } from './table-with-pagination/element-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
@@ -21,7 +21,7 @@ import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
-    TableWithPaginationComponent,
+    ElementListComponent,
     DetailComponent,
     WelcomeComponent,
     NavComponent

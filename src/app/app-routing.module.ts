@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {TableWithPaginationComponent} from './table-with-pagination/table-with-pagination.component';
+import {ElementListComponent} from './table-with-pagination/element-list.component';
 import {DetailComponent} from './detail/detail.component';
 import {WelcomeComponent} from './welcome/welcome.component';
 
@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: 'elements',
-    component: TableWithPaginationComponent
+    component: ElementListComponent
   },
   {
     path: 'elements/:id',

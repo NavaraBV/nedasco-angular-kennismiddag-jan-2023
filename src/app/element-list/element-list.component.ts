@@ -7,8 +7,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-element-list',
-  templateUrl: './table-with-pagination.component.html',
-  styleUrls: ['./table-with-pagination.component.scss']
+  templateUrl: './element-list.component.html',
+  styleUrls: ['./element-list.component.scss']
 })
 export class ElementListComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -18,6 +18,7 @@ export class ElementListComponent implements AfterViewInit {
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
   displayedColumns = ['id', 'name'];
+
   public pageSize: number = 10;
   public pageIndex: number = 0;
 

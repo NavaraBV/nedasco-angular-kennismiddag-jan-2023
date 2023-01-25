@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {ElementListComponent} from './table-with-pagination/element-list.component';
+import {ElementListComponent} from './element-list/element-list.component';
 import {ElementDetailComponent} from './detail/element-detail.component';
 import {WelcomeComponent} from './welcome/welcome.component';
 

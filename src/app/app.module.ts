@@ -8,7 +8,7 @@ import { ElementListComponent } from './table-with-pagination/element-list.compo
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { DetailComponent } from './detail/detail.component';
+import { ElementDetailComponent } from './detail/element-detail.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import {MatListModule, MatNavList} from '@angular/material/list';
 import { NavComponent } from './nav/nav.component';
@@ -22,7 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
   declarations: [
     AppComponent,
     ElementListComponent,
-    DetailComponent,
+    ElementDetailComponent,
     WelcomeComponent,
     NavComponent
   ],

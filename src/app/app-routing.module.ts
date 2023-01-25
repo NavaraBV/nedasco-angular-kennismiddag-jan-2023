@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {ElementListComponent} from './table-with-pagination/element-list.component';
-import {DetailComponent} from './detail/detail.component';
+import {ElementDetailComponent} from './detail/element-detail.component';
 import {WelcomeComponent} from './welcome/welcome.component';
 
 const routes: Routes = [
@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'elements/:id',
-    component: DetailComponent
+    component: ElementDetailComponent
   },
   {
     path: '**',
